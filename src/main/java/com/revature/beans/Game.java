@@ -1,4 +1,4 @@
-package project0_gameStoreInventory;
+package com.revature.beans;
 
 public class Game extends Product {
 	private String platform;
