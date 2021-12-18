@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import com.revature.beans.Game;
+import com.revature.beans.Product;
 import com.revature.data.postgres.GamePostgres;
 
 // this imports the static methods from Assertions so that
@@ -24,4 +25,13 @@ import java.util.Set;
 public class GameDAOTest {
 	private GameDAO gameDao = new GamePostgres();
 
+	//GamePostgres() methods to be tested
+	//Set<Product> getByName(String name)
+	//int create(Product dataToAdd)
+	//Product getById(int id)
+	//Set<Product> getAll()
+	//void update(Product dataToUpdate)
+	//void delete(Product dataToDelete)
+	//Set<Game> getByPlatform(String platform) 
+	//et<Game> getByPublisher(String publisher)
 }

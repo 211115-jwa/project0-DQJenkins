@@ -1,11 +1,38 @@
 package com.revature.beans;
 
+import java.util.Objects;
+
 public class Product {
-	private int id;
-	private String name;
-	private float price;
-	private int quantityOnHand;
-	private int quantityOrdered;
+	protected int id;
+	protected String name;
+	protected float price;
+	protected int quantityOnHand;
+	protected int quantityOrdered;
+	
+	public Product() {
+		id = 0;
+		name = "product";
+		price = 0.0f;
+		quantityOnHand = 0;
+		quantityOrdered = 0;
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, price);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return id == other.id && Objects.equals(name, other.name)
+				&& Float.floatToIntBits(price) == Float.floatToIntBits(other.price);
+	}
 	
 	@Override
 	public String toString() {
