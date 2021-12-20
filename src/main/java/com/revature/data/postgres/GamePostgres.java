@@ -23,9 +23,7 @@ public class GamePostgres implements GameDAO {
 			String sql = "select * from game where name=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
-	
-			Statement stmt = conn.createStatement();
-			ResultSet resultSet = stmt.executeQuery(sql);
+			ResultSet resultSet = pStmt.executeQuery();
 
 			// while the result set has another row
 			while (resultSet.next()) {
@@ -76,11 +74,11 @@ public class GamePostgres implements GameDAO {
 			// after setting the values, we can run the statement
 			pStmt.executeUpdate();
 			ResultSet resultSet = pStmt.getGeneratedKeys();
-			System.out.println("before resultSet.next()");
+			//System.out.println("before resultSet.next()");
 			if (resultSet.next()) { // "next" goes to the next row in the result set (or the first row)
 				// getting the ID value from the result set
 				generatedId = resultSet.getInt("id");
-				System.out.println(generatedId);
+				//System.out.println(generatedId);
 				conn.commit(); // running the TCL commit statement
 			} else {
 				conn.rollback();
@@ -216,9 +214,7 @@ public class GamePostgres implements GameDAO {
 			String sql = "select * from game where platform=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, platform);
-	
-			Statement stmt = conn.createStatement();
-			ResultSet resultSet = stmt.executeQuery(sql);
+			ResultSet resultSet = pStmt.executeQuery();
 
 			// while the result set has another row
 			while (resultSet.next()) {
@@ -252,9 +248,7 @@ public class GamePostgres implements GameDAO {
 			String sql = "select * from game where publisher=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, publisher);
-	
-			Statement stmt = conn.createStatement();
-			ResultSet resultSet = stmt.executeQuery(sql);
+			ResultSet resultSet = pStmt.executeQuery();
 
 			// while the result set has another row
 			while (resultSet.next()) {

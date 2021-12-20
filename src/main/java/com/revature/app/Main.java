@@ -15,7 +15,7 @@ import com.revature.services.UserServiceImpl;
 
 public class Main {
 	private static UserService userServ = new UserServiceImpl();
-	
+
 	public static void main(String[] args) {
 		Javalin app = Javalin.create();
 
@@ -83,7 +83,7 @@ public class Main {
 								else
 									ctx.status(404);
 							} else {
-								// conflict: the id doesn't match the id of the pet sent
+								// conflict: the id doesn't match the id of the game sent
 								ctx.status(HttpCode.CONFLICT);
 							}
 						} catch (NumberFormatException e) {
