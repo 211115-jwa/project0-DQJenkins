@@ -1,8 +1,8 @@
 create schema game_store;
 
-drop table game
+drop table postgres.game_store.game;
 
-create table game (
+create table postgres.game_store.game (
 	id serial primary key,
 	name varchar(128) not null,
 	platform varchar(128) not null,
