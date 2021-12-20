@@ -2,9 +2,15 @@ package com.revature.beans;
 
 import java.util.Objects;
 
-public class Game extends Product {
+public class Game{
+	protected int id;
+	protected String name;
 	protected String platform;
 	protected String publisher;
+	protected float price;
+	protected int quantityOnHand;
+	protected int quantityOrdered;
+	
 	
 	public Game() {
 		id = 0;
@@ -16,22 +22,15 @@ public class Game extends Product {
 		publisher = "publisher";
 	}
 	
-	
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
-		result = prime * result + Objects.hash(platform, publisher);
-		return result;
+		return Objects.hash(id, name,platform,publisher, price);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
-			return false;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
@@ -51,6 +50,46 @@ public class Game extends Product {
 				+ ", platform=" + platform + ", publisher=" + publisher + ", quantityOnHand=" 
 				+ this.getQuantityOnHand() + ", quantityOrdered=" + this.getQuantityOrdered() + "]";
 	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public int getQuantityOnHand() {
+		return quantityOnHand;
+	}
+
+	public void setQuantityOnHand(int quantityOnHand) {
+		this.quantityOnHand = quantityOnHand;
+	}
+
+	public int getQuantityOrdered() {
+		return quantityOrdered;
+	}
+
+	public void setQuantityOrdered(int quantityOrdered) {
+		this.quantityOrdered = quantityOrdered;
+	}
+
 	public String getPlatform() {
 		return platform;
 	}
