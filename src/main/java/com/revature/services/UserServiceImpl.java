@@ -3,50 +3,50 @@ package com.revature.services;
 import java.util.Set;
 
 import com.revature.beans.Game;
+import com.revature.data.GameDAO;
+import com.revature.data.postgres.GamePostgres;
 
 public class UserServiceImpl implements UserService {
+	private GameDAO gameDao = new GamePostgres();
 
 	@Override
 	public Set<Game> viewAllGames() {
-		// TODO Auto-generated method stub
-		return null;
+		return gameDao.getAll();
 	}
 
 	@Override
 	public Set<Game> searchGamesByName(String nameToSearch) {
-		// TODO Auto-generated method stub
-		return null;
+		return gameDao.getByName(nameToSearch);
 	}
 
 	@Override
 	public Set<Game> searchGamesByPlatform(String platformToSearch) {
-		// TODO Auto-generated method stub
-		return null;
+		return gameDao.getByPlatform(platformToSearch);
 	}
 
 	@Override
 	public Set<Game> searchGamesByPublisher(String publisherToSearch) {
-		// TODO Auto-generated method stub
-		return null;
+		return gameDao.getByPublisher(publisherToSearch);
 	}
 
 	@Override
 	public int addNewGame(Game newGame) {
-		// TODO Auto-generated method stub
-		return 0;
+		return gameDao.create(newGame);
 	}
 
 	@Override
 	public Game getGameById(int gameId) {
-		// TODO Auto-generated method stub
-		return null;
+		return gameDao.getById(gameId);
 	}
 
 	@Override
 	public Game editGame(Game gameToEdit) {
-		// TODO Auto-generated method stub
+		if (gameDao.getById(gameToEdit.getId()) != null) {
+			gameDao.update(gameToEdit);
+			gameToEdit = gameDao.getById(gameToEdit.getId());
+			return gameToEdit;
+		}
 		return null;
+
 	}
-
-
 }
